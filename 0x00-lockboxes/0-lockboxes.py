@@ -5,21 +5,27 @@
 def canUnlockAll(boxes):
     ''' Returns True if all boxes can be opened, otherwise False '''
     unlockedBoxes = [0]
-    boxList = enumerate(boxes)
     obtainedNewKey = True
+    # Loop through unlocked boxes until loop where no more new keys found
     while obtainedNewKey is True:
         obtainedNewKey = False
         x = 0
         while x < len(boxes):
+            # Check if we have the key to this box
             if x in unlockedBoxes:
                 for key in boxes[x]:
+                    # If a new key is found add to list and reset indicator
                     if key not in unlockedBoxes:
                         unlockedBoxes.append(key)
                         obtainedNewKey = True
             x += 1
 
-    for id, box in boxList:
-        if id not in unlockedBoxes:
+    # Loop through unlocked boxes and if there are any missing numbers
+    # return false
+    x = 0
+    while x < len(boxes):
+        if x not in unlockedBoxes:
             return False
+        x += 1
 
     return True
