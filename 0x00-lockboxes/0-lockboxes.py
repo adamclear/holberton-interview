@@ -6,7 +6,7 @@ def canUnlockAll(boxes):
     ''' Returns True if all boxes can be opened, otherwise False '''
     unlockedBoxes = [0]
     obtainedNewKey = True
-    # Loop through unlocked boxes until loop where no more new keys found
+    # Loop through boxes until loop where no more new keys found
     while obtainedNewKey is True:
         obtainedNewKey = False
         x = 0
