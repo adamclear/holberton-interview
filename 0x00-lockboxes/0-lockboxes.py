@@ -11,7 +11,7 @@ def canUnlockAll(boxes):
             if key not in unlockedBoxes:
                 unlockedBoxes.append(key)
 
-    # Loop through unlocked boxes and if there are any missing numbers
+    # Loop through unlockedBoxes and if there are any missing numbers
     # between 0 and length of boxes, return false
     x = 0
     while x < len(boxes):
