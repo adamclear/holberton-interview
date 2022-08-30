@@ -7,9 +7,7 @@ def canUnlockAll(boxes):
     unlockedBoxes = [0]
     boxList = enumerate(boxes)
     obtainedNewKey = True
-    openedAllBoxes = True
     while obtainedNewKey is True:
-        unlockedBoxes.sort()
         obtainedNewKey = False
         x = 0
         while x < len(boxes):
@@ -22,6 +20,6 @@ def canUnlockAll(boxes):
 
     for id, box in boxList:
         if id not in unlockedBoxes:
-            openedAllBoxes = False
+            return False
 
-    return openedAllBoxes
+    return True
