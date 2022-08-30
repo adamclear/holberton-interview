@@ -4,18 +4,18 @@
 
 def canUnlockAll(boxes):
     ''' Returns True if all boxes can be opened, otherwise False '''
-    unlockedBoxes = [0]
-    # Loop through unlockedBoxes adding new keys as we go
-    for x in unlockedBoxes:
+    availableKeys = [0]
+    # Loop through availableKeys adding new keys as we go
+    for x in availableKeys:
         for key in boxes[x]:
-            if key not in unlockedBoxes:
-                unlockedBoxes.append(key)
+            if key not in availableKeys:
+                availableKeys.append(key)
 
-    # If there are any numbers missing from unlockedBoxes
+    # If there are any numbers missing from availableKeys
     # between 0 and length of boxes, return false
     x = 0
     while x < len(boxes):
-        if x not in unlockedBoxes:
+        if x not in availableKeys:
             return False
         x += 1
 
