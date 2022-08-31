@@ -7,11 +7,10 @@ def canUnlockAll(boxes):
     availableKeys = [0]
     # Loop through availableKeys adding new keys as we go
     for x in availableKeys:
-        if x < len(boxes):
-            for key in boxes[x]:
-                # Append key if it is within boxes range and not yet obtained
-                if key not in availableKeys and key < len(boxes):
-                    availableKeys.append(key)
+        for key in boxes[x]:
+            # Append key if it is within boxes range and not yet obtained
+            if key not in availableKeys and key < len(boxes):
+                availableKeys.append(key)
 
     # If there are any numbers missing from availableKeys
     # between 0 and length of boxes, return false
