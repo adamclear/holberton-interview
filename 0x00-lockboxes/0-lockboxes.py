@@ -9,6 +9,7 @@ def canUnlockAll(boxes):
     for x in availableKeys:
         if x < len(boxes):
             for key in boxes[x]:
+                # Append key if it is within boxes range and not yet obtained
                 if key not in availableKeys and key < len(boxes):
                     availableKeys.append(key)
 
