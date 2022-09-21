@@ -14,5 +14,6 @@ def minOperations(n):
             if n % x == 0:
                 n = n // x
                 numOps += x
+                break
 
     return numOps
