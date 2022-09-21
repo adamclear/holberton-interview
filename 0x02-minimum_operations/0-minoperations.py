@@ -9,7 +9,7 @@ def minOperations(n):
         return 0
     numOps = 0
     while n > 1:
-        for x in range(2, 5):
+        for x in range(2, 6):
             if n % x == 0:
                 n = n / x
                 numOps += x
