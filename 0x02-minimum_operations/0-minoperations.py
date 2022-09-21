@@ -16,6 +16,6 @@ def minOperations(n):
                 numOps += x
                 success = 1
         if success == 0:
-            return 0
+            return numOps + n
 
     return numOps
