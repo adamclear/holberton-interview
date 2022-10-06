@@ -1,6 +1,4 @@
 #include "sandpiles.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * sandpiles_sum - Stably computes the sum of two sandpile grids.
@@ -11,13 +9,14 @@
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	int row, column;
+	int stablity_grid[3][3] = {{0}};
 
 	for (row = 0; row < 3; row++)
 	{
 		for (column = 0; column < 3; column++)
 			grid1[row][column] += grid2[row][column];
 	}
-	while (not_stable(grid1))
+	while (not_stable(grid1, stablity_grid))
 	{
 		printf("=\n");
 		print_grid(grid1);
@@ -25,7 +24,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		{
 			for (column = 0; column < 3; column++)
 			{
-				if (grid1[row][column] > 3)
+				if (stablity_grid[row][column] == 1)
 					topple(grid1, row, column);
 			}
 		}
@@ -35,11 +34,12 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 /**
  * not_stable - Determines if sandpile grid is stable.
  *
- * @grid: Sandpile grid to be checked
+ * @grid: Sandpile grid to be altered.
+ * @stability_grid: Grid to show which cells need toppling.
  *
  * Return: 0 if stable, 1 if not
  */
-int not_stable(int grid[3][3])
+int not_stable(int grid[3][3], int stability_grid[3][3])
 {
 	int is_stable = 0;
 	int row, column;
@@ -49,7 +49,14 @@ int not_stable(int grid[3][3])
 		for (column = 0; column < 3; column++)
 		{
 			if (grid[row][column] > 3)
+			{
 				is_stable = 1;
+				stability_grid[row][column] = 1;
+			}
+			else
+			{
+				stability_grid[row][column] = 0;
+			}
 		}
 	}
 	return (is_stable);
