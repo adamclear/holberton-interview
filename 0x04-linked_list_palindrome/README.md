@@ -1,0 +1,1 @@
+This lesson is all about linked list palindromes.
