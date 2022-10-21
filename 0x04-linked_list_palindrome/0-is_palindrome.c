@@ -10,7 +10,7 @@
 int is_palindrome(listint_t **head)
 {
 	int list_length = list_len(*head);
-	int val_list[list_length];
+	int *val_list = malloc(list_length * sizeof(int));
 	int x, y;
 	const listint_t *node = *head;
 
@@ -19,7 +19,7 @@ int is_palindrome(listint_t **head)
 		val_list[x] = node->n;
 		node = node->next;
 	}
-	
+
 	for (x = 0, y = (list_length - 1); x >= (list_length - 1); x++, y--)
 	{
 		if (x < y)
@@ -27,13 +27,13 @@ int is_palindrome(listint_t **head)
 			if (val_list[x] == val_list[y])
 				continue;
 			else
-				return 0;
+				return (0);
 		}
 		else
 			break;
 	}
 
-	return 1;
+	return (1);
 }
 
 /**
