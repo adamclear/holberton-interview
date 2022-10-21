@@ -18,12 +18,15 @@ int is_palindrome(listint_t **head)
 	{
 		val_list[x] = node->n;
 		node = node->next;
+
 	}
 
-	for (x = 0, y = (list_length - 1); x >= (list_length - 1); x++, y--)
+	for (x = 0, y = (list_length - 1); x <= (list_length - 1); x++, y--)
 	{
+
 		if (x < y)
 		{
+
 			if (val_list[x] == val_list[y])
 				continue;
 			else
