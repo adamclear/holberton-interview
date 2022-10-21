@@ -9,8 +9,31 @@
 
 int is_palindrome(listint_t **head)
 {
-	int list_length = list_len(head);
+	int list_length = list_len(*head);
 	int val_list[list_length];
+	int x, y;
+	const listint_t *node = *head;
+
+	for (x = 0; x <= (list_length - 1); x++)
+	{
+		val_list[x] = node->n;
+		node = node->next;
+	}
+	
+	for (x = 0, y = (list_length - 1); x >= (list_length - 1); x++, y--)
+	{
+		if (x < y)
+		{
+			if (val_list[x] == val_list[y])
+				continue;
+			else
+				return 0;
+		}
+		else
+			break;
+	}
+
+	return 1;
 }
 
 /**
