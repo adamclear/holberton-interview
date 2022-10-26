@@ -17,9 +17,7 @@ int is_palindrome(unsigned long n)
 		remainder = copy_n % 10;
 		reversed = reversed * 10 + remainder;
 		copy_n /= 10;
-		printf("%lu\n", reversed);
 	}
-	printf("%lu\n", reversed);
 
 	if (n == reversed)
 		return (1);
