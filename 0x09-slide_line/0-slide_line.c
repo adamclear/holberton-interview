@@ -17,9 +17,15 @@ int slide_line(int *line, size_t size, int direction)
 		merge_left(line, size);
 	else
 		merge_right(line, size);
-	return 1;
+	return (1);
 }
 
+/**
+ * merge_left - Merges line left
+ * @line: Pointer to the array to be merged
+ * @size: Size of the array
+ * Return: none
+*/
 void merge_left(int *line, size_t size)
 {
 	int x = 1, y = 0, z = size - 1;
@@ -61,6 +67,12 @@ void merge_left(int *line, size_t size)
 	}
 }
 
+/**
+ * merge_right - Merges line right
+ * @line: Pointer to the array to be merged
+ * @size: Size of the array
+ * Return: none
+*/
 void merge_right(int *line, size_t size)
 {
 	int x = size - 2, y = size - 1;
