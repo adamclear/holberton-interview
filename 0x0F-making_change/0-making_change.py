@@ -18,7 +18,6 @@ def makeChange(coins, total):
     changeMade = [0] * (total + 1)
     coins.sort(reverse=True)
     for coin in coins:
-        print('coin = ', coin)
         for x in range(coin, total + 1):
             if (changeMade[x - coin]):
                 if (changeMade[x]):
